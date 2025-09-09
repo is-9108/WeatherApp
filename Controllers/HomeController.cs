@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -19,10 +20,9 @@ namespace WeatherApp.Controllers
 
         }
 
+        [Authorize]
         public IActionResult Index()
         {
-            if (UserId == null)
-                return RedirectToAction("Login", "Account", new { area = "Identity" });
 
             var userArea = _context.Locates.Where(l => l.UserId == UserId).ToList();
             if (userArea.Count() == 0)

@@ -17,73 +17,69 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WeatherApp
 build_property.RootNamespace = WeatherApp
-build_property.ProjectDir = C:\Users\syout\source\repos\WeatherApp\
+build_property.ProjectDir = C:\Users\is910\source\repos\is-9108\WeatherApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\syout\source\repos\WeatherApp
+build_property.MSBuildProjectDirectory = C:\Users\is910\source\repos\is-9108\WeatherApp
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/syout/source/repos/WeatherApp/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Views/Home/Index.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/syout/source/repos/WeatherApp/Views/Home/RegisterArea.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Views/Home/RegisterArea.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RlckFyZWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Views/_ViewImports.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Views/_ViewStart.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syout/source/repos/WeatherApp/Views/Shared/_Layout.cshtml]
+[C:/Users/is910/source/repos/is-9108/WeatherApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ainogv7fv6

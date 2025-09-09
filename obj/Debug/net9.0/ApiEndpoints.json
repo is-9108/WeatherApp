@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "WeatherApp.Controllers.API.GetCityController",
+    "Method": "GetCities",
+    "RelativePath": "api/GetCity/getCities",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
