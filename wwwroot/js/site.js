@@ -17,6 +17,25 @@ function selectArea() {
                 option.text = city.name;
                 citySelect.appendChild(option);
             });
+        },
+        error: function (xhr, status, error) {
+            // エラー時の処理
+            alert("Error: " + error);
+        }
+    });
+}
+function getLocate() {
+    
+    var city = document.getElementById("cities").value;
+    alert(city);
+    $.ajax({
+        type: "POST",
+        url: "/api/GetCity/getLocate",
+        data: { city: city },
+        success: function (data) {
+            console.log(data.userid);
+            console.log(data.ido);
+            console.log(data.keido);
             // 成功時の処理
             alert("Success");
         },

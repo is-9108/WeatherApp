@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<City>
 <h1>地域設定</h1>
-<form method="post">
+
     <label>都道府県</label>
-    <select id="todoufuken" onchange="selectArea()">
+    <select id="todoufuken" name="todoufuken" onchange="selectArea()">
         <option value="00">都道府県を選択してください</option>
         @foreach(var city in Model)
         {
@@ -10,6 +10,5 @@
         })
     </select>
     <label>市区町村</label>
-    <select id="cities"></select>
-    <button type="submit">設定</button>
-</form>
+    <select id="cities" name="cities"></select>
+    <button type="submit" onclick="getLocate()">設定</button>
