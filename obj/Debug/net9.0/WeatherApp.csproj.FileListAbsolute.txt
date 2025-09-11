@@ -332,9 +332,7 @@ C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\a3ygkwa5zy-2z
 C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
-C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\imc1z5lvkv-b9sayid5wm.gz
 C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\tp1u0yqc2s-61n19gt1b8.gz
-C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\xchjbzii45-xtxxf3hu2r.gz
 C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\15f1sclfbh-bqjiyaj88i.gz
 C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\sbqqxdbrf5-c2jlpeoesf.gz
 C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\5ov3c25vsi-erw9l3u2r3.gz
@@ -869,3 +867,6 @@ C:\Users\is910\source\repos\is-9108\WeatherApp\obj\Debug\net9.0\WeatherApp.genru
 C:\Users\is910\source\repos\is-9108\WeatherApp\obj\Debug\net9.0\ref\WeatherApp.dll
 C:\Users\is910\source\repos\is-9108\WeatherApp\obj\Debug\net9.0\compressed\imc1z5lvkv-io2tm5mqat.gz
 C:\Users\is910\source\repos\is-9108\WeatherApp\obj\Debug\net9.0\compressed\xchjbzii45-h8xji9tkcc.gz
+C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\WeatherApp.sourcelink.json
+C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\imc1z5lvkv-io2tm5mqat.gz
+C:\Users\syout\source\repos\WeatherApp\obj\Debug\net9.0\compressed\xchjbzii45-htdjp3wsen.gz

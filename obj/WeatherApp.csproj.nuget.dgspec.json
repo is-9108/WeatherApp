@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\is910\\source\\repos\\is-9108\\WeatherApp\\WeatherApp.csproj": {}
+    "C:\\Users\\syout\\source\\repos\\WeatherApp\\WeatherApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\is910\\source\\repos\\is-9108\\WeatherApp\\WeatherApp.csproj": {
+    "C:\\Users\\syout\\source\\repos\\WeatherApp\\WeatherApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\is910\\source\\repos\\is-9108\\WeatherApp\\WeatherApp.csproj",
+        "projectUniqueName": "C:\\Users\\syout\\source\\repos\\WeatherApp\\WeatherApp.csproj",
         "projectName": "WeatherApp",
-        "projectPath": "C:\\Users\\is910\\source\\repos\\is-9108\\WeatherApp\\WeatherApp.csproj",
-        "packagesPath": "C:\\Users\\is910\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\is910\\source\\repos\\is-9108\\WeatherApp\\obj\\",
+        "projectPath": "C:\\Users\\syout\\source\\repos\\WeatherApp\\WeatherApp.csproj",
+        "packagesPath": "C:\\Users\\syout\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\syout\\source\\repos\\WeatherApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\is910\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\syout\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

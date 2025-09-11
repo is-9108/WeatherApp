@@ -4,12 +4,19 @@
 // Write your JavaScript code.
 function selectArea() {
     var todoufuken = document.getElementById("todoufuken").value;
-    alert(todoufuken);
     $.ajax({
         type: "POST",
         url: "/api/GetCity/getCities",
         data: { id: todoufuken },
         success: function (data) {
+            var citySelect = document.getElementById("cities");
+            data.cities.forEach((city) => console.log(city));
+            data.cities.forEach(function (city) {
+                var option = document.createElement("option");
+                option.value = city.name;
+                option.text = city.name;
+                citySelect.appendChild(option);
+            });
             // 成功時の処理
             alert("Success");
         },
