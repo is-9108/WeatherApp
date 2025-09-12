@@ -1,6 +1,32 @@
 [
   {
     "ContainingType": "WeatherApp.Controllers.API.GetCityController",
+    "Method": "getApiInfo",
+    "RelativePath": "api/GetCity",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "url",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WeatherApp.Controllers.API.GetCityController",
     "Method": "GetCities",
     "RelativePath": "api/GetCity/getCities",
     "HttpMethod": "POST",
@@ -23,6 +49,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "todoufuken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
       {
         "Name": "city",
         "Type": "System.String",

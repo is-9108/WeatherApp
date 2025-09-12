@@ -1,20 +1,19 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-function selectArea() {
+﻿function selectArea() {
     var todoufuken = document.getElementById("todoufuken").value;
+    var citySelect = document.getElementById("cities");
+    for (var i = citySelect.options.length - 1; i >= 0; i--) {
+        citySelect.remove(i);
+    }
     $.ajax({
         type: "POST",
         url: "/api/GetCity/getCities",
         data: { id: todoufuken },
         success: function (data) {
-            var citySelect = document.getElementById("cities");
             data.cities.forEach((city) => console.log(city));
             data.cities.forEach(function (city) {
                 var option = document.createElement("option");
-                option.value = city.name;
-                option.text = city.name;
+                option.value = city;
+                option.text = city;
                 citySelect.appendChild(option);
             });
         },
@@ -25,19 +24,16 @@ function selectArea() {
     });
 }
 function getLocate() {
-    
+    var todoufuken = document.getElementById("todoufuken").value;
     var city = document.getElementById("cities").value;
-    alert(city);
     $.ajax({
         type: "POST",
         url: "/api/GetCity/getLocate",
-        data: { city: city },
+        data: { todoufuken:todoufuken, city: city },
         success: function (data) {
-            console.log(data.userid);
-            console.log(data.ido);
-            console.log(data.keido);
             // 成功時の処理
-            alert("Success");
+            window.location.href = "/HOME";
+            alert(data.message);
         },
         error: function (xhr, status, error) {
             // エラー時の処理

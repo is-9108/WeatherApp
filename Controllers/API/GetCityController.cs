@@ -1,65 +1,106 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
+using WeatherApp.Models;
 
 namespace WeatherApp.Controllers.API
 {
-    public class City
-    {
-        public string code { get; set; }
-        public string name { get; set; }
-        public string kana { get; set; }
-    }
-    public class Locate
-    {
-        public string lat { get; set; }
-        public string lon { get; set; }
-    }
-    
     [ApiController]
     [Route("api/[controller]")]
     public class GetCityController : Controller
     {
         private string? UserId => User?.FindFirstValue(ClaimTypes.NameIdentifier);
-        [HttpPost("getCities")]
-        public async Task<IActionResult> GetCities([FromForm] string id)
+        private readonly MydatabaseContext _context;
+        public GetCityController(MydatabaseContext context)
         {
-            var url = "https://postal-codes-jp.azurewebsites.net/api/Cities/Pref/";
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client
-                .GetAsync(url + id);
-            string result = await response.Content.ReadAsStringAsync();
+            _context = context;
+        }
 
-            List<City>? citiesJson = JsonSerializer.Deserialize<List<City>>(result);
-            var cities = citiesJson.Select(c => new { c.name }).ToList();
-            
-            if (response.IsSuccessStatusCode)
+        [HttpPost("getCities")]
+        public IActionResult GetCities([FromForm] string id)
+        {
+            string url = "https://postal-codes-jp.azurewebsites.net/api/Cities/Pref/" + id;
+
+            string result = getApiInfo(url).Result;
+            if (result == "Error")
+                return new JsonResult(new { message = "Error" });
+            List<string> cities = new List<string>();
+            JsonDocument json = JsonDocument.Parse(result);
+            JsonElement root = json.RootElement;
+            foreach (var item in root.EnumerateArray())
             {
-                return new JsonResult(new { cities = cities });
+                cities.Add(item.GetProperty("name").GetString());
             }
 
-            return new JsonResult(new { message = "Error", id = id }); 
+            return new JsonResult(new { cities = cities });
         }
 
 
         [HttpPost("getLocate")]
-        public async Task<IActionResult> GetLocate([FromForm]string city)
+        public async Task<IActionResult> GetLocate([FromForm] string todoufuken, [FromForm] string city)
         {
-            var url = $"https://nominatim.openstreetmap.org/search?q={Uri.EscapeDataString(city)}&format=json&limit=1&addressdetails=1";
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent","WeatherApp");
-            HttpResponseMessage response = await client
-                .GetAsync(url);
-            string result = await response.Content.ReadAsStringAsync();
-            List<Locate>? citiesJson = JsonSerializer.Deserialize<List<Locate>>(result);
-            var ido = citiesJson[0].lat;
-            var keido = citiesJson[0].lon;
-            if(response.IsSuccessStatusCode)
+            string getTodoufukenUrl = "https://postal-codes-jp.azurewebsites.net/api/Prefs/" + todoufuken;
+            var getCityUrl = $"https://nominatim.openstreetmap.org/search?q={Uri.EscapeDataString(city)}&format=json&limit=1&addressdetails=1";
+
+            //緯度経度を取得
+            string cityResult = getApiInfo(getCityUrl).Result;
+            if (cityResult == "Error")
+                return new JsonResult(new { message = "Error" });
+            JsonDocument cityJson = JsonDocument.Parse(cityResult);
+            JsonElement cityRoot = cityJson.RootElement;
+            var cityIdo = cityRoot[0].GetProperty("lat").GetString();
+            var cityKeido = cityRoot[0].GetProperty("lon").GetString();
+           
+            //都道府県名を取得
+            string todoufukenResult = getApiInfo(getTodoufukenUrl).Result;
+            if (todoufukenResult == "Error")
+                return new JsonResult(new { message = "Error" });
+            using JsonDocument todoufukenJson = JsonDocument.Parse(todoufukenResult);
+            JsonElement todoufukenRoot = todoufukenJson.RootElement;
+            var todoufukenName = todoufukenRoot.GetProperty("name").GetString();
+            
+            var items = _context.Locates.Where(I => I.UserId == UserId).ToList();
+            
+
+            if (items.Count <= 0)
             {
-                return new JsonResult(new { userid = UserId, ido = ido, keido = keido });
+                Locate locate = new Locate()
+                {
+                    UserId = UserId,
+                    Ido = double.Parse(cityIdo),
+                    Keido = double.Parse(cityKeido)
+                };
+
+                _context.Locates.Add(locate);
+
             }
-            return new JsonResult(new { message = "Error" });
+            else
+            {
+                items[0].Ido = double.Parse(cityIdo);
+                items[0].Keido = double.Parse(cityKeido);
+            }
+
+            await _context.SaveChangesAsync();
+            return new JsonResult(new { message="Success" });
+        }
+
+        public async Task<string> getApiInfo(string url)
+        {
+            string result = null;
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("User-Agent", "WeatherApp");
+                HttpResponseMessage response = await client.GetAsync(url);
+                result = await response.Content.ReadAsStringAsync();
+            }
+
+            if (result != null)
+                return result;
+            return "Error";
+
         }
     }
     

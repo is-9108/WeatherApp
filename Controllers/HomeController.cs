@@ -23,17 +23,12 @@ namespace WeatherApp.Controllers
         [Authorize]
         public IActionResult Index()
         {
-
             var userArea = _context.Locates.Where(l => l.UserId == UserId).ToList();
             if (userArea.Count() == 0)
-            {
                 return RedirectToAction("RegisterArea");
-            }
-            var ido = userArea.Select(u => u.Ido);
-            var keido = userArea.Select(u => u.Keido);
 
-            if (ido == null || keido == null)
-                return RedirectToAction("RegisterArea");
+            ViewData["Ido"] = userArea[0].Ido;
+            ViewData["Keido"] = userArea[0].Keido;
 
 
 
