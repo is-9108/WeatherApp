@@ -15,6 +15,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<MydatabaseContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.Configure<APIKey>(
+    builder.Configuration.GetSection("WeatherAPI"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
