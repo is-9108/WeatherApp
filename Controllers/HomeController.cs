@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -38,6 +39,7 @@ namespace WeatherApp.Controllers
             ViewData["Ido"] = userArea[0].Ido;
             ViewData["Keido"] = userArea[0].Keido;
 
+            List<Forecast> forecastList = new List<Forecast>();
             var url = $"https://api.openweathermap.org/data/2.5/forecast?lat={userArea[0].Ido}&lon={userArea[0].Keido}&appid={_apikey.WeatherKey}&units=metric&lang=ja";
             using (GetCityController GetCityController = new GetCityController(_context))
             {
@@ -47,8 +49,16 @@ namespace WeatherApp.Controllers
                 };
                 var result = GetCityController.getApiInfo(url).Result;
                 var weatherInfos = JsonSerializer.Deserialize<WeatherForecastResponse>(result,options);
+                foreach(var forecast in weatherInfos.List)
+                {
+                    long date = forecast.Dt;
+                    DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(date);
+                    DateTimeOffset japanDateTime = dateTimeOffset.ToOffset(TimeSpan.FromHours(9));
+                    forecast.DtTxt = japanDateTime.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+                    forecastList.Add(forecast);
+                }
             }
-                
+            
             
             return View();
         }
