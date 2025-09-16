@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using System.Globalization;
@@ -36,9 +37,7 @@ namespace WeatherApp.Controllers
             if (userArea.Count() == 0)
                 return RedirectToAction("RegisterArea");
 
-            ViewData["Ido"] = userArea[0].Ido;
-            ViewData["Keido"] = userArea[0].Keido;
-
+            bool isHanging = true;
             List<Forecast> forecastList = new List<Forecast>();
             var url = $"https://api.openweathermap.org/data/2.5/forecast?lat={userArea[0].Ido}&lon={userArea[0].Keido}&appid={_apikey.WeatherKey}&units=metric&lang=ja";
             using (GetCityController GetCityController = new GetCityController(_context))
@@ -49,6 +48,7 @@ namespace WeatherApp.Controllers
                 };
                 var result = GetCityController.getApiInfo(url).Result;
                 var weatherInfos = JsonSerializer.Deserialize<WeatherForecastResponse>(result,options);
+                ViewData["CityName"] = weatherInfos.City.Name;
                 foreach(var forecast in weatherInfos.List)
                 {
                     long date = forecast.Dt;
@@ -59,8 +59,29 @@ namespace WeatherApp.Controllers
                 }
             }
             
-            
-            return View();
+            List<Home> homes = new List<Home>();
+            for(int i = 0; i < forecastList.Count; i++)
+            {
+                homes.Add(new Home
+                {
+                    Date = forecastList[i].DtTxt,
+                    Humidity = forecastList[i].Main.Humidity.ToString(),
+                    Temp = forecastList[i].Main.Temp.ToString(),
+                    Description = forecastList[i].Weather[0].Description,
+                    WeatherIcon = GetWeatherIconUrl(forecastList[i].Weather[0].Icon)
+                });
+            }
+
+            for(int i = 0; i < 3; i++)
+            {
+                if (forecastList[i].Weather[0].Id < 800)
+                {
+                    isHanging = false;
+                    break;
+                }
+            }
+            ViewData["isHanging"] = isHanging;
+            return View(homes);
         }
 
         public async Task<IActionResult> RegisterArea()
@@ -73,6 +94,11 @@ namespace WeatherApp.Controllers
         public IActionResult Error()
         {
             return View();
+        }
+
+        public string GetWeatherIconUrl(string IconId)
+        {
+            return $"https://openweathermap.org/img/wn/{IconId.Remove(IconId.Length - 1)}d@2x.png";
         }
     }
 }

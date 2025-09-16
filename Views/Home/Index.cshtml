@@ -1,23 +1,34 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-<p>緯度：@ViewBag.Ido</p>
-<p>経度：@ViewBag.Keido</p>
+﻿@model IEnumerable<Home>
 
-<div class="todayWeather">
-    <h3>1日の天気（1時間ごと）</h3>
+<p>@ViewBag.CityName の天気</p>
+
+
+<div class="weather-container">
+        @foreach (var item in Model)
+        {
+            <div class="card weather-card">
+                <div class="card-body">
+                    <h5 class="card-title">天気情報</h5>
+                    <p class="card-text"><strong>@Html.DisplayNameFor(m => m.Date):</strong>@item.Date</p>
+                    <p class="card-text"><strong>@Html.DisplayNameFor(m => m.Description):</strong>@item.Description</p>
+                    <img class="card-text" src=@item.WeatherIcon alt="@item.Description"/>
+                    <p class="card-text"><strong>@Html.DisplayNameFor(m => m.Temp):</strong>@item.Temp ℃</p>
+                    <p class="card-text"><strong>@Html.DisplayNameFor(m => m.Humidity):</strong>@item.Humidity %</p>
+                </div>
+            </div>
+        }
 </div>
 
-<div class="field">
-    <div class="todayPollen">
-        <h3>今日の花粉状況</h3>
-    </div>
 
-    <div class="todayLaundry">
-        <h3>洗濯物を干せるか</h3>
-    </div>
+<div class="todayLaundry">
+    <h5>洗濯物を干せるか</h5>
+    @if(ViewBag.isHanging == true)
+    {
+        <p>干せます</p>
+    }
+    else
+    {
+        <p>干せません</p>
+    }
 </div>
 
-<div class="weekWeather">
-    <h3>直近の天気(４日後まで)</h3>
-</div>

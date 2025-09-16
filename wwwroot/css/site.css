@@ -32,3 +32,24 @@ body {
 .field{
     display: flex;
 }
+
+.weather-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+    scroll-snap-type: x mandatory;
+}
+
+.weather-card {
+    flex: 0 0 auto;
+    width: 250px;
+    scroll-snap-align: start;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,1);
+}
+
+.weather-card .card-body {
+    pading: 1rem;
+}
