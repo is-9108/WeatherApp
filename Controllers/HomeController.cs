@@ -48,7 +48,6 @@ namespace WeatherApp.Controllers
                 };
                 var result = GetCityController.getApiInfo(url).Result;
                 var weatherInfos = JsonSerializer.Deserialize<WeatherForecastResponse>(result,options);
-                ViewData["CityName"] = weatherInfos.City.Name;
                 foreach(var forecast in weatherInfos.List)
                 {
                     long date = forecast.Dt;

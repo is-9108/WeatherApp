@@ -33,7 +33,6 @@ function getLocate() {
         success: function (data) {
             // 成功時の処理
             window.location.href = "/HOME";
-            alert(data.message);
         },
         error: function (xhr, status, error) {
             // エラー時の処理

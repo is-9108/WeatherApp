@@ -1,8 +1,5 @@
 ﻿@model IEnumerable<Home>
 
-<p>@ViewBag.CityName の天気</p>
-
-
 <div class="weather-container">
         @foreach (var item in Model)
         {
@@ -24,11 +21,11 @@
     <h5>洗濯物を干せるか</h5>
     @if(ViewBag.isHanging == true)
     {
-        <p>干せます</p>
+        <img src="~/IMG/sentakuOK.png" alt="洗濯物を干せます"/>
     }
     else
     {
-        <p>干せません</p>
+        <img src="~/IMG/sentakuNO.png" alt="洗濯物を干せません"/>
     }
 </div>
 
